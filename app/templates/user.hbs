@@ -1,0 +1,36 @@
+<h1>User</h1>
+
+<dl>
+  <dt>Email:</dt>
+  <dd>{{email}}</dd>
+  <dt>Nick:</dt>
+  <dd>{{nick}}</dd>
+  <dt>Projects:</dt>
+  <dd>
+    <ul>
+      {{#each project in projects}}
+        <li>
+          {{#linkTo 'project' project.id}}
+            {{project.name}}
+          {{/linkTo}}
+        </li>
+      {{/each}}
+    </ul>
+  </dd>
+  <dt>Scores</dt>
+  <dd>
+    <ul>
+      {{#each score in scores}}
+        <li>
+          {{#linkTo 'project' score.id}}
+            {{score.id}}
+          {{/linkTo}}
+        </li>
+      {{/each}}
+    </ul>
+  </dd>
+</dl>
+
+{{#linkTo 'user.edit' model}}Change{{/linkTo}}
+
+{{outlet}}
